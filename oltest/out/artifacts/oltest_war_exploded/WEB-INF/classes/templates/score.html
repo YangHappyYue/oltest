@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>getScore</title>
+    <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+    <meta name="author" content="Vincent Garreau" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" media="screen" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/window.css"/>
+</head>
+<body>
+
+<div class="get-score">
+
+    <form name="f" th:action="@{/center}" method="post">
+        <div class="score-top" th:text="得分：+ ${score}"></div>
+        <div class="form-actions">
+            <center>
+                <!--//<span type="submit"  class="close" th:value="${user}" >×</span>-->
+                <button type="submit"  class="score-button" name="username" th:value="${user}">确定</button>
+            </center>
+        </div>
+    </form>
+
+</div>
+
+<script>
+
+//    window.onclick = function(event) {
+//        modal.style.display = "none";
+//    }
+</script>
+
+<!-- scripts -->
+<script src="../static/js/particles.min.js"></script>
+<script src="../static/js/app.js"></script>
+
+</body>
+</html>

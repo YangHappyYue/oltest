@@ -1,0 +1,203 @@
+﻿<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>oltest</title>
+
+<link href="../static/css/main.css" rel="stylesheet" type="text/css" />
+<link href="../static/css/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="../static/css/test.css" rel="stylesheet" type="text/css" />
+<style>
+.hasBeenAnswer {
+	background: #5d9cec;
+	color:#fff;
+}
+</style>
+</head>
+<body>
+
+<div class="main">
+	<!--nr start-->
+	<div class="test_main">
+		<div class="nr_left">
+			<div class="test">
+				<form th:action="@{/checkAnswer}" method="post">
+						<div class="test_content">
+							<div class="test_content_title">
+								<h2>单选题</h2>
+								<p>
+									<span>共</span><i class="content_lit">15</i><span>题，</span><span>合计</span><i class="content_fs">60</i><span>分</span>
+								</p>
+							</div>
+						</div>
+						<div class="test_content_nr">
+							<ul id="list">
+							</ul>
+						</div>
+                    <div class="test_title">
+                        <p class="test_time">
+                            <b id="rest_time" class="alt-1">00:30</b>
+                        </p>
+                        <font><input type="submit" id="jiaojuan" value="交卷"></font>
+                    </div>
+				</form>
+			</div>
+		</div>
+		<div class="nr_right">
+			<div class="nr_rt_main">
+				<div class="rt_nr1">
+					<div class="rt_nr1_title">
+						<h1>
+							答题卡
+						</h1>
+						<p class="test_time">
+							<b class="alt-1">00:30</b>
+						</p>
+					</div>
+					
+						<div class="rt_content">
+							<div class="rt_content_tt">
+								<h2>单选题</h2>
+								<p>
+									<span>共</span><i class="content_lit">15</i><span>题</span>
+								</p>
+							</div>
+							<div class="rt_content_nr answerSheet">
+								<ul>
+									
+										<li><a href="#qu_0_0">1</a></li>
+									
+										<li><a href="#qu_0_1">2</a></li>
+									
+										<li><a href="#qu_0_2">3</a></li>
+									
+										<li><a href="#qu_0_3">4</a></li>
+									
+										<li><a href="#qu_0_4">5</a></li>
+									
+										<li><a href="#qu_0_5">6</a></li>
+									
+										<li><a href="#qu_0_6">7</a></li>
+									
+										<li><a href="#qu_0_7">8</a></li>
+									
+										<li><a href="#qu_0_8">9</a></li>
+									
+										<li><a href="#qu_0_9">10</a></li>
+									
+										<li><a href="#qu_0_10">11</a></li>
+									
+										<li><a href="#qu_0_11">12</a></li>
+									
+										<li><a href="#qu_0_12">13</a></li>
+									
+										<li><a href="#qu_0_13">14</a></li>
+									
+										<li><a href="#qu_0_14">15</a></li>
+								</ul>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--nr end-->
+	<div class="foot"></div>
+</div>
+
+<script src="../static/js/jquery-1.11.3.min.js"></script>
+<script src="../static/js/jquery.easy-pie-chart.js"></script>
+<!--时间js-->
+<script src="../static/js/jquery.countdown.js"></script>
+<script th:inline="javascript" type="text/javascript">
+    var btn = document.getElementById("jiaojuan");
+    window.onload = function (){
+        // 给 ul 一个 id 叫 list
+        var a = [[${question_list}]];
+        var str = "";
+        for(var i=0; i<a.length; i++) {
+            var node = document.createElement("LI"); //创建一个li节点
+            str =str+ "\n<li id="+"qu_0_"+i+">\n" +
+                "<div class=\"test_content_nr_tt\">\n" +
+                "<i>"+(i+1)+"</i><span>(4分)</span><font>"+a[i][1]+"</font>\n" +
+                "</div>\n" +
+                "\n" +
+                "<div class=\"test_content_nr_main\">\n" +
+                "<ul>\n" +
+                "\n" +
+                "<li class=\"option\">\n" +
+                "\n" +
+                "<input type=\"radio\" class=\"radioOrCheck\" name=\"answer"+(i+1)+"\"\n" +
+                "id=\"0_answer_"+(i+1)+"_option_1\" value=\"A\"\n" +
+                " />" +
+                "<label for=\"0_answer_"+(i+1)+"_option_1\">\n" +
+                "A.\n" +
+                "<p class=\"ue\" style=\"display: inline;\"  >"+a[i][2]+"</p>\n" +
+                "</label>\n" +
+                "</li>\n" +
+                "\n" +
+                "<li class=\"option\">\n" +
+                "\n" +
+                "<input type=\"radio\" class=\"radioOrCheck\" name=\"answer"+(i+1)+"\"\n" +
+                "id=\"0_answer_"+(i+1)+"_option_2\" value=\"B\" />\n" +
+                "<label for=\"0_answer_"+(i+1)+"_option_2\">\n" +
+                "B.\n" +
+                "<p class=\"ue\" style=\"display: inline;\">"+a[i][3]+"</p>\n" +
+                "</label>\n" +
+                "</li>\n" +
+                "\n" +
+                "<li class=\"option\">\n" +
+                "<input type=\"radio\" class=\"radioOrCheck\" name=\"answer"+(i+1)+"\"\n" +
+                "id=\"0_answer_"+(i+1)+"_option_3\"  value=\"C\"\n" +
+                "/>\n" +
+                "<label for=\"0_answer_"+(i+1)+"_option_3\">\n" +
+                "C.\n" +
+                "<p class=\"ue\" style=\"display: inline;\">"+a[i][4]+"</p>\n" +
+                "</label>\n" +
+                "</li>\n" +
+                "\n" +
+                "<li class=\"option\">\n" +
+                "\n" +
+                "<input type=\"radio\" class=\"radioOrCheck\" name=\"answer"+(i+1)+"\"\n" +
+                "id=\"0_answer_"+(i+1)+"_option_4\" value=\"D\"\n" +
+                "/>\n" +
+                "\n" +
+                "\n" +
+                "<label for=\"0_answer_"+(i+1)+"_option_4\">\n" +
+                "D.\n" +
+                "<p class=\"ue\" style=\"display: inline;\">"+a[i][5]+"</p>\n" +
+                "</label>\n" +
+                "</li>\n" +
+                "\n" +
+                "</ul>\n" +
+                "</div>\n" +
+                "</li>";
+        }
+        document.getElementById('list').innerHTML = str;
+
+        $('li.option label').click(function() {
+            var examId = $(this).closest('.test_content_nr_main').closest('li').attr('id'); // 得到题目ID
+            var cardLi = $('a[href=#' + examId + ']'); // 根据题目ID找到对应答题卡
+            console.log(cardLi);
+            // 设置已答题
+            if(!cardLi.hasClass('hasBeenAnswer')){
+                cardLi.addClass('hasBeenAnswer');
+            }
+        });
+    };
+    window.jQuery(function($) {
+        "use strict";
+        $('.alt-1').countDown({
+            css_class : 'countdown-alt-1',
+        });
+
+    });
+    function jiaojuan(){
+        btn.click();
+    }
+    setTimeout(jiaojuan,1000*60*30)
+</script>
+</body>
+</html>

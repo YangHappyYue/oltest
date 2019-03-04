@@ -1,0 +1,114 @@
+
+/* 弹窗 (background) */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: absolute;
+    z-index: 9;
+    width: 500px;
+    border-radius: 5px;
+    height: 150px;
+    background: white;
+    box-shadow: 0px 0px 5px #333333;
+    top: 40%;
+    left: 40%;
+    margin-top: -50px;
+    margin-left: -125px;
+    transition: all 1s;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.get-score{
+   /*display: none; !* 默认隐藏 *!*/
+    position: absolute;
+    z-index: 9;
+    width: 500px;
+    border-radius: 5px;
+    height: 150px;
+    background: white;
+    box-shadow: 0px 0px 5px #333333;
+    top: 40%;
+    left: 40%;
+    margin-top: -50px;
+    margin-left: -125px;
+    transition: all 1s;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* 弹窗内容 */
+.modal-content {
+    position: relative;
+    width: 500px;
+    border-radius: 5px;
+    height: 150px;
+    background: white;
+    box-shadow: 0px 0px 5px #333333;
+    top: 40%;
+    left: 40%;
+    margin-top: -50px;
+    margin-left: -125px;
+    transition: all 1s;
+    /*background-color: #fefefe;*/
+    /*margin: auto;*/
+    /*padding: 0;*/
+    /*border: 1px solid #888;*/
+    /*width: 500px;*/
+    /*height:150px;*/
+    /*transition: all 1s;*/
+    /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
+
+}
+
+/* 添加动画 */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* 关闭按钮 */
+.close {
+    background: white;
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #ba4f4a;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    height: 25%;
+    width: 100%;
+    position:absolute;
+    background-color: #ba4f4a;
+    color: white;
+}
+
+.modal-body {
+    height: 50%;
+    width: 100%;}
+
+.modal-footer {
+    height: 25%;
+    width: 100%;
+    position:absolute;
+    bottom:0;
+    background-color: #ba4f4a;
+    text-align: right;
+    color: white;
+}

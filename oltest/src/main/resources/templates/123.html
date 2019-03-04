@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--</script>-->
+<form name="f" th:action="@{/test}" method="post">
+    <div class="login-center clearfix">
+        <div class="form-actions">
+            <button type="submit" class="login-button">登录</button>
+        </div>
+    </div>
+</form>
+
+<i>1</i><span th:text="${score}">(1分)</span><font>1</font>
+<!--<script th:inline="javascript" type="text/javascript">-->
+    <!--var a =  [[${hello}]];-->
+    <!--alert("你的得分是："+a);-->
+<!--</script>-->
+<!--<script th:inline="javascript" type="text/javascript">-->
+    <!--var a =  [[${hello}]];-->
+    <!--if(a=="error"){-->
+        <!--alert("用户名或者密码出错");-->
+        <!--window.location.href="login";-->
+    <!--}-->
+    <!--else{alert("登录成功!");}-->
+<!--</script>-->
+</body>
+</html>

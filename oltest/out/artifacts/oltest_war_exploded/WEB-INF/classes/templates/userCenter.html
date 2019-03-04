@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>UserCenter</title>
+    <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+    <meta name="author" content="Vincent Garreau" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" media="screen" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/window.css"/>
+
+</head>
+<body>
+<div id="myModal" class="modal">
+    <span class="close">×</span>
+    <div class="score-show-top" id="score"></div>
+</div>
+<div id="particles-js">
+    <div class="login">
+
+        <div class="login-center-top" >
+            <center>
+                <div class="login-usercenter-img">
+                    <center><img src="../static/img/name.png"/></center>
+                </div>
+                <h1  th:text="${user}"></h1>
+            </center>
+
+        </div>
+        <div class="login-center clearfix">
+        <form name="f" th:action="@{/oltest}" method="post">
+                <div class="form-actions">
+                    <button type="submit" class="test-button" name="username" th:value="${user}">开始测试</button>
+                </div>
+        </form>
+            <div class="form-actions">
+                <button class="test-button" id="history">历史成绩</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script th:inline="javascript" type="text/javascript">
+    var score_list_Str = [[${score_list}]].toString();
+    document.getElementById("score").textContent="历史得分："+score_list_Str;
+
+    var modal = document.getElementById('myModal');
+
+    // 打开弹窗的按钮对象
+    var btn = document.getElementById("history");
+
+    // 获取 <span> 元素，用于关闭弹窗 that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // 点击按钮打开弹窗
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // 点击 <span> (x), 关闭弹窗
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // 在用户点击其他地方时，关闭弹窗
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+<!-- scripts -->
+<script src="../static/js/particles.min.js"></script>
+<script src="../static/js/app.js"></script>
+
+</body>
+</html>
